@@ -1,0 +1,25 @@
+{
+    "name": "podorozhnyky",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "npm run dev --prefix server",
+        "client": "npm run dev --prefix client"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ods-fsd/Podorozhnyky.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ods-fsd/Podorozhnyky/issues"
+    },
+    "homepage": "https://github.com/ods-fsd/Podorozhnyky#readme",
+    "devDependencies": {
+        "concurrently": "^9.2.1"
+    }
+}
