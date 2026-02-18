@@ -1,25 +1,25 @@
 {
-    "name": "podorozhnyky",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "dev": "concurrently \"npm run server\" \"npm run client\"",
-        "server": "npm run dev --prefix server",
-        "client": "npm run dev --prefix client"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ods-fsd/Podorozhnyky.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/ods-fsd/Podorozhnyky/issues"
-    },
-    "homepage": "https://github.com/ods-fsd/Podorozhnyky#readme",
-    "devDependencies": {
-        "concurrently": "^9.2.1"
-    }
+  "name": "0",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "16.1.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "typescript": "^5"
+  }
 }
