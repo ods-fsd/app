@@ -8,3 +8,5 @@ export const nextServer = axios.create({
 
 // Експортуємо також як api, бо в деяких місцях може використовуватися ця назва
 export const api = nextServer;
+
+

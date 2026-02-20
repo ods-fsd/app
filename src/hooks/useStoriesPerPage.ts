@@ -49,3 +49,4 @@ export function useStoriesPerPage(config?: PerPageConfig) {
 
   return perPage;
 }
+
