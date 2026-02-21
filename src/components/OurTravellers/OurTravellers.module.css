@@ -1,0 +1,68 @@
+.ourTravellersSection {
+  padding: 64px 0;
+}
+
+.title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 48px;
+}
+
+.paginateButton {
+  display: hidden;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text-invert);
+  border: 1px solid var(--button-solid);
+  border-radius: 8px;
+  padding: 6px 12px;
+  width: auto;
+  height: 48px;
+  background-color: var(--button-solid);
+  margin: 0 auto;
+}
+
+.paginateButton:hover,
+.paginateButton:focus {
+  background-color: var(--button-solid-hover);
+  color: var(--text);
+}
+
+.paginateButton:active {
+  background-color: var(--button-solid-active);
+  color: var(--text);
+}
+
+@media screen and (min-width: 768px) {
+  .paginateButton {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .paginateButton {
+    font-size: 18px;
+    margin: 48px auto 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 44px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .ourTravellersSection {
+    padding: 72px 0;
+  }
+  .title {
+    font-size: 52px;
+  }
+}

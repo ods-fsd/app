@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-import style from '@/app/(auth-layout)/Auth.module.css';
+import css from './layout.module.css';
 
 export default function MainLayout({
   children,
@@ -9,9 +9,10 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={style.pageWrapper}>
+    <div className={css.pageWrapper}>
       <Header />
-      <main>{children}</main>
+      {/* Клас mainContent гарантує, що футер завжди буде внизу екрана */}
+      <main className={css.mainContent}>{children}</main>
       <Footer />
     </div>
   );
