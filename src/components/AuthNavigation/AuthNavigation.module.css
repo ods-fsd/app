@@ -1,0 +1,105 @@
+.navigationItem,
+.storyButtonElAuth,
+.headerLinkNav {
+  display: none;
+}
+
+.userPhoto {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--opacity-neutral-darkest-10); 
+}
+
+.userDefaultPhoto {
+  background-image: url('/placeholder-image.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--opacity-neutral-darkest-10);
+}
+
+
+.line {
+  display: block;
+  background-color: var(--border, rgba(0, 0, 0, 0.15));
+  width: 1px;
+  height: 24px;
+  margin: 0 8px; 
+}
+
+.storyButtonElAuth {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background-color: var(--color-royal-blue);
+  color: var(--color-white);
+  border-radius: 8px;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.storyButtonElAuth:hover {
+  opacity: 0.85;
+}
+
+.storyLinkElAuth {
+  display: block;
+  padding: 4px 10px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  color: inherit;
+}
+
+.storyButtonElTransparentAuth {
+  background-color: var(--color-white);
+  color: var(--color-neutral-darkest);
+}
+
+.headerLinkNav {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.headerLinkNav:hover {
+  opacity: 0.7;
+}
+
+
+@media (min-width: 768px) {
+  .navigationItem,
+  .headerLinkNav {
+    display: flex;
+  }
+  
+  .navigationItem {
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+    margin-left: 16px;
+  }
+  
+  .headerLinkNav {
+    padding: 4px 0;
+    flex-wrap: nowrap;
+  }
+}
+
+
+@media (min-width: 1440px) {
+  .storyButtonElAuth {
+    display: flex;
+    width: auto;
+    flex-shrink: 0; 
+    white-space: nowrap;
+    margin-left: 32px; 
+  }
+}

@@ -1,0 +1,63 @@
+.themeToggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background-color: var(--card); 
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 4px 12px var(--opacity-neutral-darkest-15);
+  transition: 
+    background-color 0.3s ease, 
+    border-color 0.3s ease, 
+    transform 0.2s ease, 
+    box-shadow 0.2s ease;
+}
+
+.icon {
+  fill: currentColor;
+  transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+
+.themeToggle:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--opacity-neutral-darkest-20);
+  background-color: var(--background);
+}
+
+.themeToggle:hover .icon {
+  transform: scale(1.1);
+}
+
+.themeToggle:focus-visible {
+  outline: 2px solid var(--color-royal-blue);
+  outline-offset: 2px;
+}
+
+.themeToggle:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px var(--opacity-neutral-darkest-10);
+}
+
+/* Адаптив для планшетів та десктопів */
+@media screen and (min-width: 768px) {
+  .themeToggle {
+    bottom: 32px;
+    right: 32px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+}

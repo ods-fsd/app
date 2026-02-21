@@ -1,0 +1,152 @@
+.section {
+  background-color: var(--background);
+  padding: 64px 0;
+  width: 100%;
+}
+
+/* About Content */
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+@media screen and (min-width: 768px) {
+  .aboutContent {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .aboutContent {
+    width: 100%;
+    gap: 40px;
+  }
+}
+
+/* Title */
+.title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 44px;
+    width: 340px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 52px;
+    width: 755px;
+  }
+}
+
+/* Description */
+.description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .description {
+    height: 168px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .description {
+    padding: 8px 0px 0px;
+    font-size: 20px;
+    width: 533px;
+    height: 180px;
+  }
+}
+
+/* Features List */
+.featuresList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .featuresList {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .featuresList {
+    gap: 32px;
+  }
+}
+
+/* Feature Item */
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .feature {
+    flex: 1;
+  }
+}
+
+/* Icon */
+.icon {
+  fill: var(--text);
+  color: var(--color-neutral-darkest);
+}
+
+/* Feature Title */
+.featureTitle {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+}
+
+@media screen and (min-width: 1440px) {
+  .featureTitle {
+    font-size: 32px;
+  }
+}
+
+/* Feature Description */
+.featureDescription {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0;
+}
+
+@media screen and (min-width: 1440px) {
+  .featureDescription {
+    font-size: 18px;
+  }
+}

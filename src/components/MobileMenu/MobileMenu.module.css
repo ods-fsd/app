@@ -1,0 +1,233 @@
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+}
+
+.menuContent {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  padding: 32px 24px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.menuInnerWrapper {
+  max-width: 335px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.headerLinkLogo {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.logo_icon {
+  margin-right: 4px;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--text);
+  border: 1px solid var(--border, rgba(0,0,0,0.15));
+  border-radius: 8px;
+  padding: 4px;
+  width: 32px;
+  height: 32px;
+  background: var(--opacity-neutral-darkest-5);
+  cursor: pointer;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.closeButton:hover,
+.closeButton:focus-visible {
+  opacity: 0.8;
+  outline: none;
+}
+
+.menuNav {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
+.menuLink {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  transition: opacity 0.2s ease;
+}
+
+.menuLink:hover {
+  opacity: 0.7;
+}
+
+.authButtonsWrapper {
+  margin-top: auto; 
+}
+
+.authButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.menuButton {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 0; 
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.menuButton:hover {
+  opacity: 0.85;
+}
+
+.menuButtonLogin {
+  background-color: var(--color-white);
+  color: var(--color-neutral-darkest);
+  border: 1px solid var(--border, rgba(0,0,0,0.15));
+}
+
+.menuButtonRegister {
+  background-color: var(--color-royal-blue);
+  color: var(--color-white);
+  border: 1px solid var(--color-royal-blue);
+}
+
+/* Авторизований стан */
+.authContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.storyButtonElMob {
+  width: 100%;
+  background-color: var(--color-royal-blue);
+  color: var(--color-white);
+  border-radius: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.storyButtonElMob:hover {
+  opacity: 0.85;
+}
+
+.storyButtonElTransparentMob {
+  background-color: var(--color-white);
+  color: var(--color-neutral-darkest);
+}
+
+.storyLinkElMob {
+  display: block;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: inherit;
+}
+
+.navUserWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.profileLinkMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-right: 8px;
+  text-decoration: none;
+  color: var(--text); 
+  font-weight: 400;
+  font-size: 14px; 
+  transition: opacity 0.2s ease;
+}
+
+.profileLinkMobile:hover {
+  opacity: 0.8;
+}
+
+.userPhoto {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userDefaultPhoto {
+  background-image: url('/placeholder-image.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--opacity-neutral-darkest-10);
+}
+
+
+.line {
+  display: block;
+  background-color: var(--border, rgba(0, 0, 0, 0.15));
+  width: 1px;
+  height: 24px;
+  margin: 0 16px; 
+}
+
+.logoutButtonSvg {
+  display: flex;
+  fill: var(--text);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.logoutButtonSvg:hover {
+  opacity: 0.7;
+}

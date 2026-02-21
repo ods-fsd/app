@@ -1,0 +1,226 @@
+/* Hero Section */
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 812px;
+  overflow: hidden;
+  padding-top: 196px;
+  padding-bottom: 331px;
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    min-height: 634px;
+    padding-top: 244px;
+    padding-bottom: 117px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .section {
+    min-height: 900px;
+    padding-bottom: 347px;
+  }
+}
+
+/* Background Image */
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(
+      to bottom,
+      var(--opacity-neutral-darkest-20),
+      var(--opacity-neutral-darkest-20)
+    ),
+    url('/images/Hero/Hero-mob1x.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Mobile Retina */
+@media screen and (min-resolution: 2dppx),
+  screen and (-webkit-min-device-pixel-ratio: 2) {
+  .backgroundImage {
+    background-image:
+      linear-gradient(
+        to bottom,
+        var(--opacity-neutral-darkest-20),
+        var(--opacity-neutral-darkest-20)
+      ),
+      url('/images/Hero/Hero-mob2x.jpg');
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .backgroundImage {
+    background-image:
+      linear-gradient(
+        to bottom,
+        var(--opacity-neutral-darkest-20),
+        var(--opacity-neutral-darkest-20)
+      ),
+      url('/images/Hero/Hero-pla1x.jpg');
+  }
+}
+
+/* Tablet Retina */
+@media screen and (min-width: 768px) and (min-resolution: 2dppx),
+  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  .backgroundImage {
+    background-image:
+      linear-gradient(
+        to bottom,
+        var(--opacity-neutral-darkest-20),
+        var(--opacity-neutral-darkest-20)
+      ),
+      url('/images/Hero/Hero-pla2x.jpg');
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
+  .backgroundImage {
+    background-image:
+      linear-gradient(
+        to bottom,
+        var(--opacity-neutral-darkest-20),
+        var(--opacity-neutral-darkest-20)
+      ),
+      url('/images/Hero/Hero1x.jpg');
+  }
+}
+
+/* Desktop Retina */
+@media screen and (min-width: 1440px) and (min-resolution: 2dppx),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
+  .backgroundImage {
+    background-image:
+      linear-gradient(
+        to bottom,
+        var(--opacity-neutral-darkest-20),
+        var(--opacity-neutral-darkest-20)
+      ),
+      url('/images/Hero/Hero2x.jpg');
+  }
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  max-width: 335px;
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .content {
+    max-width: 600px;
+  }
+}
+
+/* Title */
+.title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 48px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 56px;
+  }
+}
+
+/* Description */
+.description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-white);
+  margin: 0;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .description {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .description {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+}
+
+/* Button */
+.button {
+  font-family: var(--font-family);
+  display: block;
+  font-weight: 500;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-white);
+  background-color: var(--color-royal-blue);
+  border: 1px solid var(--color-royal-blue);
+  border-radius: 8px;
+  padding: 12px 24px;
+  width: 100%;
+  max-width: 335px;
+  height: auto;
+  min-height: 48px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-royal-blue-dark);
+  border-color: var(--color-royal-blue-dark);
+}
+
+.button:active {
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    max-width: 200px;
+    padding: 14px 28px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .button {
+    max-width: 220px;
+    font-size: 18px;
+  }
+}
