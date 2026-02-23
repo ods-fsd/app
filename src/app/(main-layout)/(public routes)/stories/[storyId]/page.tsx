@@ -1,9 +1,8 @@
-import StoryDetails from '@/components/StoryDetails/StoryDetails';
-import { fetchStoryById } from '@/lib/api/serverApi';
-import style from '@/app/Home.module.css';
-import css from './StoryPage.module.css';
-import { Popular } from '@/components/Popular/Popular';
-import { notFound } from 'next/navigation';
+import StoryDetails from "@/components/StoryDetails/StoryDetails";
+import { fetchStoryById } from "@/lib/api/serverApi";
+import style from "@/app/Home.module.css";
+import css from "./StoryPage.module.css";
+import { Popular } from "@/components/Popular/Popular";
 
 type StoryPageProps = {
   params: {

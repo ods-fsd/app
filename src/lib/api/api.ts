@@ -1,10 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const nextServer = axios.create({
-  baseURL: 'https://podorozhnyky-server.onrender.com/api',
+  baseURL: "http://localhost:3000", // Адреса твого бекенду (підстав свою, якщо інша)
   withCredentials: true,
 });
 
 export const api = nextServer;
-
-
