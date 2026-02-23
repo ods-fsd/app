@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 export const nextServer = axios.create({
-  baseURL: 'https://podorozhnyky-server.onrender.com/api',
+
+  baseURL: process.env.NEXT_PUBLIC_API_URL || '/app/api',
   withCredentials: true,
 });
 
 export const api = nextServer;
-
-

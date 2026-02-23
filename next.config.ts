@@ -18,15 +18,19 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'ftp.goit.study',
-        port: '',
-      },
-      {
-        protocol: 'https',
         hostname: 'ui-avatars.com',
         port: '',
       },
     ],
+  },
+  
+  async rewrites() {
+    return [
+      {
+        source: '/app/api/:path*',
+        destination: 'http://localhost:5000/api/:path*', 
+      },
+    ];
   },
 };
 

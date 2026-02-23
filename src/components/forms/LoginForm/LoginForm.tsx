@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import styles from './LoginForm.module.css';
 import { api } from '@/lib/api/api';
+import { useAuthStore } from '@/lib/store/authStore';
 
 export const LoginForm = () => {
   const router = useRouter();
@@ -18,7 +19,10 @@ export const LoginForm = () => {
     validationSchema: loginSchema,
     onSubmit: async (values) => {
       try {
-        await api.post('/auth/login', values);     
+        const { data } = await api.post('/auth/login', values);
+        if (data && data.data && data.data.user) {
+          useAuthStore.getState().setUser(data.data.user);
+        }
         toast.success('Успішний вхід!');
         router.push('/');
       } catch {

@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import styles from '../LoginForm/LoginForm.module.css';
 import { api } from '@/lib/api/api';
 import toast from 'react-hot-toast';
+import { useAuthStore } from '@/lib/store/authStore';
 
 export const RegistrationForm = () => {
   const router = useRouter();
@@ -15,9 +16,15 @@ export const RegistrationForm = () => {
     validationSchema: registerSchema,
     onSubmit: async (values) => {
       try {
-        await api.post('/auth/register', values);
-        toast.success('Успішна реєстрація!');
-        router.push('/auth/login');
+        const { data } = await api.post('/auth/register', values);
+        if (data && data.data && data.data.user) {
+          useAuthStore.getState().setUser(data.data.user);
+          toast.success('Успішна реєстрація!');
+          router.push('/');
+        } else {
+          toast.success('Успішна реєстрація! Увійдіть.');
+          router.push('/auth/login');
+        }
       } catch (error) {
         toast.error('Помилка реєстрації. Перевірте дані.');
         console.error('Помилка реєстрації', error);
