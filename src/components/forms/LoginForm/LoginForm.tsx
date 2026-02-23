@@ -41,6 +41,8 @@ export const LoginForm = () => {
           id="email"
           name="email"
           type="email"
+          placeholder='hello@podorozhnyky.ua'
+          autoComplete="email"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.email}
@@ -57,6 +59,8 @@ export const LoginForm = () => {
           id="password"
           name="password"
           type="password"
+          placeholder='********'
+          autoComplete="current-password"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}

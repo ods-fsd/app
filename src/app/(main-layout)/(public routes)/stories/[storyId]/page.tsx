@@ -5,15 +5,19 @@ import css from "./StoryPage.module.css";
 import { Popular } from "@/components/Popular/Popular";
 
 type StoryPageProps = {
-  params: Promise<{
+  params: {
     storyId: string;
-  }>;
+  };
 };
 
 export default async function StoryPage({ params }: StoryPageProps) {
-  const { storyId } = await params;
+  const { storyId } = params;
 
   const story = await fetchStoryById(storyId);
+
+  if (!story) {
+    notFound();
+  }
 
   return (
     <section className={css.page} aria-label="story page">

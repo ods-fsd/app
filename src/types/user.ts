@@ -47,16 +47,16 @@ export interface IApiResponse {
 }
 
 export type PaginatedUsersResponse = {
+  status: number;
+  message: string;
   data: {
-    users: IUser[];
-    pageInfo: {
-      total: number;
-      page: number;
-      perPage: number;
-      totalPages: number;
-      hasNextPage: boolean;
-      hasPrevPage: boolean;
-    };
+    data: IUser[];
+    page: number;
+    perPage: number;
+    totalItems: number;
+    totalPages: number;
+    hasNextPage: boolean;
+    hasPreviousPage: boolean;
   };
 };
 

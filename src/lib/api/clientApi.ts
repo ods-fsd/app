@@ -2,7 +2,6 @@ import {
   AuthResetPwdCredentials,
   AuthResponseLogin,
   AuthResponseLogout,
-  AuthResponseRefresh,
   AuthResponseRegister,
   LoginCredentials,
   RegisterCredentials,
