@@ -1,38 +1,45 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import toast from "react-hot-toast";
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import toast from 'react-hot-toast';
 
-import { logout } from "@/lib/api/clientApi";
-import { useAuthStore } from "@/lib/store/authStore";
+import { logout } from '@/lib/api/clientApi';
+import { useAuthStore } from '@/lib/store/authStore';
 
-import AuthNavigation from "../AuthNavigation/AuthNavigation";
-import MobileMenu from "../MobileMenu/MobileMenu";
-import ConfirmModal from "../ConfirmModal/ConfirmModal";
+import AuthNavigation from '../AuthNavigation/AuthNavigation';
+import MobileMenu from '../MobileMenu/MobileMenu';
+import ConfirmModal from '../ConfirmModal/ConfirmModal';
 
-import mainCss from "@/app/Home.module.css";
-import css from "./Header.module.css";
+import mainCss from '@/app/Home.module.css';
+import css from './Header.module.css';
 
 export default function Header() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { user, isAuthenticated, clearIsAuthenticated } = useAuthStore() as any;
-
+  const { user, isAuthenticated, clearIsAuthenticated } = useAuthStore();
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === '/';
+ 
+  const isAuthPage = pathname?.startsWith('/auth') ?? false;
+
+  useEffect(() => {
+    const rafId = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+
+    return () => cancelAnimationFrame(rafId);
+  }, []);
 
   const handleLogout = async () => {
     try {
       const res = await logout();
       if (res?.message) {
-        if (clearIsAuthenticated) clearIsAuthenticated();
-        toast.success("Ви успішно вийшли з системи");
-
-        window.location.href = "/";
+        clearIsAuthenticated();
+        toast.success('Ви успішно вийшли з системи');
       }
       setIsOpenConfirmModal(false);
       if (isMobileMenuOpen) {
@@ -40,7 +47,7 @@ export default function Header() {
       }
     } catch (error) {
       console.error(error);
-      toast.error("Сталася помилка при виході");
+      toast.error('Сталася помилка при виході');
     }
   };
 
@@ -56,9 +63,6 @@ export default function Header() {
   const finalMenuButton = isHomePage
     ? `${css.mobileMenuButtonNoTransparent} ${css.mobileMenuButtonTransparent}`
     : css.mobileMenuButtonNoTransparent;
-  const finalStoryTabButton = isHomePage
-    ? `${css.storyTabletLinkBase} ${css.storyTabletTransparent}`
-    : css.storyTabletLinkBase;
 
   return (
     <>
@@ -67,12 +71,7 @@ export default function Header() {
           <div className={css.headerContainer}>
             <Link className={css.headerLinkLogo} href="/">
               <div className={css.logo_icon}>
-                <svg
-                  className={css.logo_iconSvg}
-                  width="23"
-                  height="23"
-                  aria-hidden="true"
-                >
+                <svg className={css.logo_iconSvg} width="23" height="23" aria-hidden="true">
                   <use href="/sprite.svg#icon-plant_logo" />
                 </svg>
               </div>
@@ -100,84 +99,76 @@ export default function Header() {
                 </ul>
 
                 <ul className={css.navigationItemProfile}>
-                  {isAuthenticated ? (
-                    <>
-                      <AuthNavigation />
-                      <li className={css.LogoutListSvg}>
-                        <button
-                          className={css.logoutButtonSvg}
-                          onClick={() => setIsOpenConfirmModal(true)}
-                          aria-label="Вийти з акаунта"
-                        >
-                          <svg width="24" height="24" aria-hidden="true">
-                            <use href="/sprite.svg#icon-logout" />
-                          </svg>
-                        </button>
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li
-                        className={`${css.navigationAuth} ${finalNavigationLog}`}
-                      >
-                        <Link
-                          href="/auth/login"
-                          prefetch={false}
-                          className={css.linkAuth}
-                        >
-                          Вхід
-                        </Link>
-                      </li>
-                      <li
-                        className={`${css.navigationAuth} ${finalNavigationReg}`}
-                      >
-                        <Link
-                          href="/auth/register"
-                          prefetch={false}
-                          className={css.linkAuth}
-                        >
-                          Реєстрація
-                        </Link>
-                      </li>
-                    </>
+                  {mounted && (
+                    isAuthenticated ? (
+                      <>
+                        <AuthNavigation />
+                        <li className={css.LogoutListSvg}>
+                          <button
+                            className={css.logoutButtonSvg}
+                            onClick={() => setIsOpenConfirmModal(true)}
+                            aria-label="Вийти з акаунта"
+                          >
+                            <svg width="24" height="24" aria-hidden="true">
+                              <use href="/sprite.svg#icon-logout" />
+                            </svg>
+                          </button>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li className={`${css.navigationAuth} ${finalNavigationLog}`}>
+                          <Link
+                            href="/auth/login"
+                            prefetch={false}
+                            className={css.linkAuth}
+                          >
+                            Вхід
+                          </Link>
+                        </li>
+                        <li className={`${css.navigationAuth} ${finalNavigationReg}`}>
+                          <Link
+                            href="/auth/register"
+                            prefetch={false}
+                            className={css.linkAuth}
+                          >
+                            Реєстрація
+                          </Link>
+                        </li>
+                      </>
+                    )
                   )}
                 </ul>
               </nav>
 
-              {isAuthenticated && (
-                <div className={`${css.storyTablet} ${finalStoryTabButton}`}>
-                  <Link
-                    href="/stories/create/"
-                    className={css.storyTabletLink}
-                    prefetch={false}
-                  >
-                    Опублікувати Історію
-                  </Link>
-                </div>
+              
+              {!isAuthPage && (
+                <button
+                  className={`${css.mobileMenuButtonBase} ${finalMenuButton}`}
+                  onClick={() => setIsMobileMenuOpen(true)}
+                  aria-label="Відкрити мобільне меню"
+                >
+                  <svg width="24" height="24" aria-hidden="true">
+                    <use href="/sprite.svg#icon-menu" />
+                  </svg>
+                </button>
               )}
-
-              <button
-                className={`${css.mobileMenuButtonBase} ${finalMenuButton}`}
-                onClick={() => setIsMobileMenuOpen(true)}
-                aria-label="Відкрити мобільне меню"
-              >
-                <svg width="24" height="24" aria-hidden="true">
-                  <use href="/sprite.svg#icon-menu" />
-                </svg>
-              </button>
             </div>
           </div>
         </div>
       </header>
 
-      <MobileMenu
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-        isHomePage={isHomePage}
-        isAuthenticated={isAuthenticated}
-        user={user}
-        handleLogout={() => setIsOpenConfirmModal(true)}
-      />
+      
+      {!isAuthPage && (
+        <MobileMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+          isHomePage={isHomePage}
+          isAuthenticated={isAuthenticated}
+          user={user}
+          handleLogout={() => setIsOpenConfirmModal(true)}
+        />
+      )}
 
       {isOpenConfirmModal && (
         <ConfirmModal
