@@ -32,14 +32,13 @@ const OurTravellers: React.FC<OurTravellersProps> = ({ showLoadMore = false }) =
       queryFn: ({ pageParam = 1 }) => fetchAuthors(pageParam, perPage),
       initialPageParam: 1,
       getNextPageParam: lastPage =>
-        lastPage.data.pageInfo.hasNextPage
-          ? lastPage.data.pageInfo.page + 1
+        lastPage.data.hasNextPage
+          ? lastPage.data.page + 1
           : undefined,
       enabled: isMounted,
     });
 
-  
-  const allAuthors = data?.pages.flatMap(page => page.data.users) ?? [];
+  const allAuthors = data?.pages.flatMap(page => page.data.data) ?? [];
 
   return (
     <section className={css.ourTravellersSection} aria-labelledby="our-travellers">
