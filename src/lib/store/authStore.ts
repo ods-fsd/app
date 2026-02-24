@@ -6,7 +6,7 @@ interface AuthState {
   user: IUser | null;
   isAuthenticated: boolean;
   updateFavorites: (favorites: IUser["favorites"]) => void;
-  setUser: (user: IUser) => void;
+  setUser: (user: IUser, token?: string) => void;
   clearIsAuthenticated: () => void;
 }
 
@@ -18,6 +18,14 @@ export const useAuthStore = create<AuthState>((set) => ({
     set((state) => ({
       user: state.user ? { ...state.user, favorites } : null,
     })),
-  setUser: (user) => set({ user, isAuthenticated: true }),
-  clearIsAuthenticated: () => set({ user: null, isAuthenticated: false }),
+  setUser: (user, token) => {
+    if (token) {
+      localStorage.setItem("auth-token", token);
+    }
+    set({ user, isAuthenticated: true });
+  },
+  clearIsAuthenticated: () => {
+    localStorage.removeItem("auth-token");
+    set({ user: null, isAuthenticated: false });
+  },
 }));

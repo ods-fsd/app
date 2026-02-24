@@ -48,7 +48,7 @@ export default function LoginForm() {
   ) => {
     try {
       const { data } = await login(values);
-      setUser(data.user);
+      setUser(data.user, data.token);
 
       toast.success('Вхід виконано успішно!');
       router.push('/');
