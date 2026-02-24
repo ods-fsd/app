@@ -22,7 +22,7 @@ export default function GetOauthUrl() {
     const sendCodeToBackend = async () => {
       try {
         const { data } = await loginWithGoogle({ code });
-        setUser(data.data.user);
+        setUser(data.data.user, data.data.token);
         router.push('/');
       } catch (error) {
         console.error('Помилка авторизації через Google:', error);

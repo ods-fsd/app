@@ -23,6 +23,7 @@ export interface AuthResetPwdCredentials {
 export interface AuthResponseLogin {
   data: {
     accessToken?: string;
+    token?: string;
     user: IUser;
     [key: string]: unknown;
   };
