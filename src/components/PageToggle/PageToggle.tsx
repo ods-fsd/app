@@ -16,13 +16,13 @@ const PageToggle = () => {
         href="/profile/own"
         className={`${styles.tab} ${isOwnActive ? styles.active : ""}`}
       >
-        Мої історії
+        Збережені історії
       </Link>
       <Link
         href="/profile/saved"
         className={`${styles.tab} ${isSavedActive ? styles.active : ""}`}
       >
-        Збережені
+        Мої історії
       </Link>
     </div>
   );
