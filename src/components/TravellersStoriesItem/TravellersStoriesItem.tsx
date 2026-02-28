@@ -177,22 +177,21 @@ export const TravellersStoriesItem = ({
               <button
                 className={css.actionButton}
                 onClick={() => setShowDeleteModal(true)}
-                aria-label="Delete story"
               >
+                {/* Розмір іконки 24x24 */}
                 <svg className={css.actionIcon} width="24" height="24">
                   <use href="/sprite.svg#icon-travel"></use>
                 </svg>
               </button>
             ) : (
               <button
-                className={`${css.bookmarkButton} ${
-                  isFavorite ? css.bookmarkButtonActive : ""
-                }`}
+                className={css.bookmarkButton}
                 onClick={handleBookmarkClick}
               >
                 {isLoading ? (
                   <span className={css.loader}></span>
                 ) : (
+                  /* Розмір іконки 24x24 */
                   <svg className={css.bookmarkIcon} width="24" height="24">
                     <use href="/sprite.svg?v=2#icon-bookmarkIcon"></use>
                   </svg>

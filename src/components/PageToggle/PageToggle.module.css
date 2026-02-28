@@ -1,37 +1,39 @@
-/* components/PageToggle/PageToggle.module.css */
-
 .toggleWrapper {
-  display: inline-flex;
-  gap: 8px;
-  border: 1px solid var(--opacity-transparent, rgba(0, 0, 0, 0.1));
-  border-radius: 10px;
+  display: flex;
+  /* Ширина блоку відповідає ширині картки */
+  width: 420px;
+  background-color: #e8eeff;
   padding: 4px;
-  background: var(--tabs-background, #f3f4f6);
-  margin-bottom: 40px;
+  border-radius: 12px;
+  /* Зміщуємо блок вліво, прибираючи автоматичні відступи */
+  margin: 0 0 32px 0;
+  gap: 4px;
 }
 
 .tab {
-  background: transparent;
-  color: var(--text, #000);
-  border: none;
-  padding: 8px 24px;
-  border-radius: 8px;
-  font-weight: 500;
+  /* flex: 1 робить обидві кнопки рівними за шириною */
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
   font-size: 16px;
-  cursor: pointer;
-  display: inline-flex;
+  font-weight: 500;
+  color: #111827;
+  display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.tab:hover {
-  filter: brightness(0.95);
+/* Активний стан: біла кнопка з легкою тінню та рамкою */
+.active {
+  background-color: #f7f9ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  color: #000000;
 }
 
-.active {
-  background: var(--tabs-active-background, #fff);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--color-scheme-2-border, #e5e7eb);
+.tab:not(.active):hover {
+  opacity: 0.8;
 }
