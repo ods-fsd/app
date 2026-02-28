@@ -24,8 +24,13 @@ const TravellersStories = ({
   return (
     <>
       <ul className={css.storiesList}>
-        {stories.map((story) => (
-          <TravellersStoriesItem story={story} isOwn={isOwn} key={story._id} />
+        {stories.map((story, index) => (
+          <TravellersStoriesItem
+            story={story}
+            isOwn={isOwn}
+            // Якщо story._id порожній, використовуємо індекс, щоб не "ламати" React
+            key={story._id || `story-${index}`}
+          />
         ))}
       </ul>
       {onLoadMore && hasNextPage && !isHiddenOnMobileButton && (

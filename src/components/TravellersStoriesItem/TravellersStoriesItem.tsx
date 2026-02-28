@@ -41,9 +41,13 @@ export const TravellersStoriesItem = ({
 
   if (!story) return null;
 
+  // Функція форматування дати
   const ISODateToDate = (isoDate: string) => {
+    // Якщо дата відсутня в об'єкті story, повертаємо текст-заглушку
     if (!isoDate) return "Немає дати";
+
     const date = new Date(isoDate);
+    // Перевірка на валідність формату дати
     if (isNaN(date.getTime())) return "Невідома дата";
 
     const day = String(date.getDate()).padStart(2, "0");
@@ -140,7 +144,9 @@ export const TravellersStoriesItem = ({
               {story.category?.name ?? "Немає категорії"}
             </p>
             <h2 className={css.title}>{story.title}</h2>
-            <p className={css.description}>{story.article}</p>
+            <p className={css.description}>
+              {story.article || "Опис відсутній"}
+            </p>
           </div>
 
           <div className={css.userWrapper}>
@@ -156,6 +162,7 @@ export const TravellersStoriesItem = ({
             <div className={css.userInfoWrapper}>
               <p className={css.userName}>{story.ownerId?.name}</p>
               <div className={css.infoWrapper}>
+                {/* ПІДТЯГУВАННЯ ДАТИ ТУТ */}
                 <p className={css.date}>{ISODateToDate(story.date)}</p>
                 <span className={css.separator}>•</span>
                 <div className={css.favoriteWrapper}>
@@ -178,7 +185,6 @@ export const TravellersStoriesItem = ({
                 className={css.actionButton}
                 onClick={() => setShowDeleteModal(true)}
               >
-                {/* Розмір іконки 24x24 */}
                 <svg className={css.actionIcon} width="24" height="24">
                   <use href="/sprite.svg#icon-travel"></use>
                 </svg>
@@ -191,7 +197,6 @@ export const TravellersStoriesItem = ({
                 {isLoading ? (
                   <span className={css.loader}></span>
                 ) : (
-                  /* Розмір іконки 24x24 */
                   <svg className={css.bookmarkIcon} width="24" height="24">
                     <use href="/sprite.svg?v=2#icon-bookmarkIcon"></use>
                   </svg>
