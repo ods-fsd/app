@@ -1,0 +1,75 @@
+/* app/(private routes)/profile/Profile.module.css */
+
+.profilePage {
+  padding-top: 40px;
+  width: 100%;
+}
+
+/* Это контейнер для TravellerInfo (аватар + имя + описание) */
+.travellerInfo {
+  display: flex;
+  align-items: center; /* Выравнивает всё по вертикали по центру */
+  gap: 32px; /* Расстояние между аватаркой и текстом */
+  margin-bottom: 40px; /* Отступ вниз до табов */
+}
+
+/* Стили для аватара */
+.travellerImage {
+  flex-shrink: 0;
+  width: 150px; /* Оптимальный размер аватара, как на макете */
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f3f4f6; /* Светло-сірий фон, поки картинка вантажиться */
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Стили для блока с именем и описанием */
+.travellerDetails {
+  flex-grow: 1; /* Дозволяє блоку з текстом зайняти весь вільний простір по центру */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.travellerName {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text, #111827);
+  margin: 0;
+}
+
+.travellerDescription {
+  font-size: 16px;
+  color: var(--text, #4b5563);
+  margin: 0;
+  max-width: 600px; /* Ограничиваем ширину, чтобы текст не растягивался на всю страницу */
+  line-height: 1.5;
+}
+
+/* Стили для кнопки редактирования (если она есть) */
+.actions {
+  margin-left: auto; /* Магія: відштовхує кнопку максимально вправо */
+}
+
+.editButton {
+  padding: 10px 24px;
+  border: 1px solid #3b82f6; /* Колір бордера */
+  color: #3b82f6;
+  border-radius: 8px;
+  background: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editButton:hover {
+  background: #3b82f6;
+  color: #fff;
+}

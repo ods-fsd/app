@@ -1,35 +1,39 @@
 .toggleWrapper {
   display: flex;
-  justify-content: center;
-  gap: 0;
-  margin: 20px 0;
-  border-bottom: 1px solid #e0e0e0;
+  /* Ширина блоку відповідає ширині картки */
+  width: 420px;
+  background-color: #e8eeff;
+  padding: 4px;
+  border-radius: 12px;
+  /* Зміщуємо блок вліво, прибираючи автоматичні відступи */
+  margin: 0 0 32px 0;
+  gap: 4px;
 }
 
 .tab {
-  padding: 12px 24px;
+  /* flex: 1 робить обидві кнопки рівними за шириною */
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
   text-decoration: none;
+  border-radius: 10px;
+  font-size: 16px;
   font-weight: 500;
-  color: #666;
-  border-bottom: 3px solid transparent;
-  transition: all 0.3s ease;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-/* Активний стан - синій колір за ТЗ */
-.tab.active {
-  color: var(--primary-color, #007bff);
-  border-bottom-color: var(--primary-color, #007bff);
+/* Активний стан: біла кнопка з легкою тінню та рамкою */
+.active {
+  background-color: #f7f9ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  color: #000000;
 }
 
-.tab:hover {
-  color: var(--primary-color, #007bff);
-}
-
-@media (max-width: 480px) {
-  .tab {
-    flex: 1;
-    text-align: center;
-    padding: 10px 5px;
-    font-size: 14px;
-  }
+.tab:not(.active):hover {
+  opacity: 0.8;
 }
