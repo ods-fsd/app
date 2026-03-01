@@ -127,7 +127,10 @@ export const TravellersStoriesItem = ({
           </div>
 
           <div className={css.userWrapper}>
-            <Link href={`/travellers/${story.ownerId?._id}`} className={css.userLink}>
+            <Link
+              href={`/travellers/${story.ownerId?._id}`}
+              className={css.userLink}
+            >
               <div className={css.avatarWrapper}>
                 <Image
                   className={css.avatarImage}
@@ -146,7 +149,11 @@ export const TravellersStoriesItem = ({
               <span className={css.separator}>•</span>
               <div className={css.favoriteWrapper}>
                 <p className={css.favoriteCount}>{bookmarkCounter}</p>
-                <svg className={`${css.favoriteIcon} ${isFavorite ? css.favoriteIconActive : ""}`} width="16" height="16">
+                <svg
+                  className={`${css.favoriteIcon} ${isFavorite ? css.favoriteIconActive : ""}`}
+                  width="16"
+                  height="16"
+                >
                   <use href="/sprite.svg?v=2#icon-travel"></use>
                 </svg>
               </div>
